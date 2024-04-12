@@ -5,7 +5,7 @@
 *	    Erstellungsdatum:	  02-29-2024
 *	    Info/Notizen:		    App-Komponente. Definiert den Aufbau der Web-Applikation
 
-*	    Editiert von:		    <Name>
+*	    Editiert von:		    Kevin Krazius
 *	    Editiert am:		    <Datum>
 *     Info/Notizen:		    <Beschreibung der Änderung>		    
 *
