@@ -28,13 +28,13 @@ export const QuizProvider = ({ children }) => {
     try {
       // Alle Fragen abrufen
       const questionResponse = await axios.get(
-        "http://13.60.42.97:3001/quiz/questions"
+        "https://13.60.42.97:443/quiz/questions"
       );
       setQuestions(questionResponse.data);
 
       // Alle Antworten abrufen
       const answerResponse = await axios.get(
-        "http://13.60.42.97:3001/quiz/answers"
+        "https://13.60.42.97:443/quiz/answers"
       );
       setAnswers(answerResponse.data);
     } catch (error) {
@@ -51,13 +51,13 @@ export const QuizProvider = ({ children }) => {
   const updateQuestion = async (questionId, questionData) => {
     try {
       await axios.put(
-        `http://13.60.42.97:3001/quiz/update-questions/${questionId}`,
+        `https://13.60.42.97:443/quiz/update-questions/${questionId}`,
         questionData
       );
       fetchData();
       // Frage nach dem Update erneut abrufen und den Zustand aktualisieren
       const updatedQuestionResponse = await axios.get(
-        `http://13.60.42.97:3001/quiz/questions/${questionId}`
+        `https://13.60.42.97:443/quiz/questions/${questionId}`
       );
       const updatedQuestion = updatedQuestionResponse.data;
       setQuestions((prevQuestions) =>
@@ -74,7 +74,7 @@ export const QuizProvider = ({ children }) => {
   const deleteHelpNeeded = async (questionId) => {
     try {
       await axios.put(
-        `http://13.60.42.97:3001/quiz/delete-help-needed/${questionId}`
+        `https://13.60.42.97:443/quiz/delete-help-needed/${questionId}`
       );
       fetchData();
     } catch (error) {
@@ -86,13 +86,13 @@ export const QuizProvider = ({ children }) => {
   const updateAnswer = async (answerId, answerData) => {
     try {
       await axios.put(
-        `http://13.60.42.97:3001/quiz/update-answers/${answerId}`,
+        `https://13.60.42.97:443/quiz/update-answers/${answerId}`,
         answerData
       );
       fetchData();
       // Antwort nach dem Update erneut abrufen und den Zustand aktualisieren
       const updatedAnswerResponse = await axios.get(
-        `http://13.60.42.97:3001/quiz/answers/${answerId}`
+        `https://13.60.42.97:443/quiz/answers/${answerId}`
       );
       const updatedAnswer = updatedAnswerResponse.data;
       setAnswers((prevAnswers) =>
@@ -110,7 +110,7 @@ export const QuizProvider = ({ children }) => {
     try {
       // POST-Anfrage zum Erstellen der Frage mit Antworten
       const response = await axios.post(
-        "http://13.60.42.97:3001/quiz/create-question",
+        "https://13.60.42.97:443/quiz/create-question",
         questionData
       );
 
@@ -126,7 +126,7 @@ export const QuizProvider = ({ children }) => {
   const helpNeeded = async (selectedQuestion, helpRequest) => {
     try {
       await axios.put(
-        `http://13.60.42.97:3001/quiz/help-needed/${selectedQuestion.id}`,
+        `https://13.60.42.97:443/quiz/help-needed/${selectedQuestion.id}`,
         helpRequest
       );
       fetchData();
