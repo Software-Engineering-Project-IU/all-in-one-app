@@ -24,7 +24,7 @@ export const HelpProvider = ({ children }) => {
   const fetchData = async () => {
     try {
       const helpResponse = await axios.get(
-        "http://localhost:3001/help-requests"
+        "http://13.60.42.97:3001/help-requests"
       );
       setHelp(helpResponse.data);
     } catch (error) {
@@ -42,7 +42,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Update-Anfrage einfügen
       await axios.post(
-        `http://localhost:3001/help-requests/${requestId}/helpful`,
+        `http://13.60.42.97:3001/help-requests/${requestId}/helpful`,
         {
           is_helpful: true,
         }
@@ -58,7 +58,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
       await axios.delete(
-        `http://localhost:3001/help-requests/${requestId}/delete`
+        `http://13.60.42.97:3001/help-requests/${requestId}/delete`
       );
       fetchData();
     } catch (error) {
@@ -71,7 +71,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
       await axios.post(
-        `http://localhost:3001/help-requests/provide-help`,
+        `http://13.60.42.97:3001/help-requests/provide-help`,
         helpData
       );
 
