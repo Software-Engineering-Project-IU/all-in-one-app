@@ -23,9 +23,7 @@ export const HelpProvider = ({ children }) => {
   // Funktion zum Abrufen der Hilfsanfragen für den angemeldeten Benutzer
   const fetchData = async () => {
     try {
-      const helpResponse = await axios.get(
-        "http://13.60.42.97:3001/help-requests"
-      );
+      const helpResponse = await axios.get("//13.60.42.97:3001/help-requests");
       setHelp(helpResponse.data);
     } catch (error) {
       console.error("Fehler beim Abrufen der Hilfeanfragen:", error);
@@ -42,7 +40,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Update-Anfrage einfügen
       await axios.post(
-        `http://13.60.42.97:3001/help-requests/${requestId}/helpful`,
+        `//13.60.42.97:3001/help-requests/${requestId}/helpful`,
         {
           is_helpful: true,
         }
@@ -58,7 +56,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
       await axios.delete(
-        `http://13.60.42.97:3001/help-requests/${requestId}/delete`
+        `//13.60.42.97:3001/help-requests/${requestId}/delete`
       );
       fetchData();
     } catch (error) {
@@ -71,7 +69,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
       await axios.post(
-        `http://13.60.42.97:3001/help-requests/provide-help`,
+        `//13.60.42.97:3001/help-requests/provide-help`,
         helpData
       );
 
