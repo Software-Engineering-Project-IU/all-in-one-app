@@ -23,7 +23,9 @@ export const HelpProvider = ({ children }) => {
   // Funktion zum Abrufen der Hilfsanfragen für den angemeldeten Benutzer
   const fetchData = async () => {
     try {
-      const helpResponse = await axios.get("13.60.42.97:3001/help-requests");
+      const helpResponse = await axios.get(
+        "http://13.60.42.97:3001/help-requests"
+      );
       setHelp(helpResponse.data);
     } catch (error) {
       console.error("Fehler beim Abrufen der Hilfeanfragen:", error);
@@ -39,9 +41,12 @@ export const HelpProvider = ({ children }) => {
   const updateHelpRequest = async (requestId) => {
     try {
       // Hier die entsprechende URL für die Update-Anfrage einfügen
-      await axios.post(`13.60.42.97:3001/help-requests/${requestId}/helpful`, {
-        is_helpful: true,
-      });
+      await axios.post(
+        `http://13.60.42.97:3001/help-requests/${requestId}/helpful`,
+        {
+          is_helpful: true,
+        }
+      );
       fetchData();
     } catch (error) {
       console.error("Fehler beim Aktualisieren der Hilfsanfrage:", error);
@@ -52,7 +57,9 @@ export const HelpProvider = ({ children }) => {
   const deleteHelpRequest = async (requestId) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
-      await axios.delete(`13.60.42.97:3001/help-requests/${requestId}/delete`);
+      await axios.delete(
+        `http://13.60.42.97:3001/help-requests/${requestId}/delete`
+      );
       fetchData();
     } catch (error) {
       console.error("Fehler beim Löschen der Hilfsanfrage:", error);
@@ -63,7 +70,10 @@ export const HelpProvider = ({ children }) => {
   const newHelpComment = async (helpData) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
-      await axios.post(`13.60.42.97:3001/help-requests/provide-help`, helpData);
+      await axios.post(
+        `http://13.60.42.97:3001/help-requests/provide-help`,
+        helpData
+      );
 
       fetchData();
     } catch (error) {
