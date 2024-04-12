@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "start": "concurrently \"cd iu-project-software-engineering-backend-master && npm run start\" \"cd iu-project-software-engineering-frontend-master && npm run start\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
