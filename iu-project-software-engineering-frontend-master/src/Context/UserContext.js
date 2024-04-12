@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userResponse = await axios.get("//13.60.42.97:3001/users");
+        const userResponse = await axios.get("13.60.42.97:3001/users");
         setUsers(userResponse.data);
       } catch (error) {
         console.error("Fehler beim Abrufen der Userdaten:", error);
