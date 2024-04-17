@@ -34,10 +34,10 @@ const EditQuestions = () => {
     const fetchQuestion = async () => {
       try {
         const responseQuestion = await axios.get(
-          `https://13.60.42.97:443/quiz/questions/${id}`
+          `http://13.60.42.97:3001/quiz/questions/${id}`
         );
         const responseAnswer = await axios.get(
-          `https://13.60.42.97:443/quiz/answers/${id}`
+          `http://13.60.42.97:3001/quiz/answers/${id}`
         );
         setQuestion(responseQuestion.data);
         setAnswer(responseAnswer.data);
