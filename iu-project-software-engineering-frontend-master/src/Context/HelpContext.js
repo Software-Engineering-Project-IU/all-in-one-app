@@ -71,7 +71,7 @@ export const HelpProvider = ({ children }) => {
     try {
       // Hier die entsprechende URL für die Delete-Anfrage einfügen
       await axios.post(
-        `http://13.60.42.97:3001//help-requests/provide-help`,
+        `http://13.60.42.97:3001/help-requests/provide-help`,
         helpData
       );
 
